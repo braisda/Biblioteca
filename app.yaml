@@ -1,0 +1,46 @@
+application: biblioteca
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /res/*
+  static_dir: res
+
+- url: /pug/*
+  static_dir: pug
+  application_readable : true
+
+- url: /js/*
+  static_dir: js
+  application_readable : true
+
+- url: /img/*
+  static_dir: img
+  application_readable : true
+
+- url: /scss/*
+  static_dir: scss
+  application_readable : true
+
+- url: /vendor/*
+  static_dir: vendor
+  application_readable : true
+
+- url: /css/*
+  static_dir: css
+  application_readable : true
+
+- url: .*
+  script: handlers.main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "latest"
